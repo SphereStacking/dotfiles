@@ -1,0 +1,63 @@
+{
+    "recommendations": [
+        //all
+        "MS-CEINTL.vscode-language-pack-ja",   
+        "streetsidesoftware.code-spell-checker",
+        "usernamehw.errorlens",
+        "antfu.file-nesting",
+        "antfu.where-am-i",
+        "GitHub.vscode-pull-request-github",
+        "alefragnani.Bookmarks",
+        "angelomollame.conflict-squeezer",
+        "semanticdiff.semanticdiff",
+
+        // docker
+        "ms-azuretools.vscode-docker",
+
+        // markdown
+        "bierner.github-markdown-preview",
+        "DavidAnson.vscode-markdownlint",
+
+        // csv
+        "mechatroner.rainbow-csv",
+
+        // html
+        "formulahendry.auto-close-tag",
+        "formulahendry.auto-rename-tag",
+
+        // js ts
+        "dbaeumer.vscode-eslint",
+        "christian-kohler.path-intellisense",
+        "yoavbls.pretty-ts-errors",
+
+        // tailwind
+        "bradlc.vscode-tailwindcss",
+        "stivo.tailwind-fold",
+
+        // iconify
+        "antfu.iconify",
+
+        // vue
+        "Vue.volar",
+        "Nuxtr.nuxtr-vscode",
+
+        // dbclient
+        "DBCode.dbcode",
+
+        // redis
+        "Redis.redis-for-vscode",
+
+        // php
+        "bmewburn.vscode-intelephense-client",
+        "DEVSENSE.phptools-vscode",
+        "darkonen.phpstan-larastan",
+        "xdebug.php-debug",
+
+        // laravel 
+        "nhedger.inertia-vscode",
+
+        // theme
+        "akamud.vscode-theme-onedark",
+        "PKief.material-icon-theme",
+    ]
+}
