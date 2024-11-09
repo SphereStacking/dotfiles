@@ -1,3 +1,5 @@
+export DOTFILES_PATH="$HOME/dotfiles"
+
 # Oh My Zshの設定
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -177,10 +179,7 @@ function codei() {
   i && $EDITOR "$@" && cd -
 }
 
-function serve() {
-  if [[ -z $1 ]] then
-    live-server dist
-  else
-    live-server $1
-  fi
-}
+# -------------------------------- #
+# CheatSheets
+# -------------------------------- #
+source "$DOTFILES_PATH/CheatSheets/.script.sh"
