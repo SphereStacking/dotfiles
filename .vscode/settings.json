@@ -38,6 +38,14 @@
   // extensionの設定
   "extensions.ignoreRecommendations": true,          // 拡張機能の推奨を無視
 
+  // gitblameの設定
+  "gitblame.statusBarMessageClickAction": "Open git show",
+  "gitblame.ignoreWhitespace": true,
+  "gitblame.inlineMessageEnabled": true,
+  "gitblame.inlineMessageFormat": "💻${author.name} 🚀${time.ago} ${commit.summary}",
+  "gitblame.inlineMessageNoCommit": "Not Committed Yet",
+  "gitblame.statusBarMessageFormat": "💻${author.name} 🚀${time.ago}",
+  "gitblame.statusBarMessageNoCommit": "Not Committed Yet",
 
   // tailwind-fold拡張機能の設定
   "tailwind-fold.unfoldedTextOpacity": 0.5,         // Tailwind CSSの折りたたまれていないテキストの透明度
