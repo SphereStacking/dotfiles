@@ -1,22 +1,34 @@
-# git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
-# ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
-ZSH_THEME="spaceship"
+# Oh My Zshの設定
+export ZSH="$HOME/.oh-my-zsh"
 
-# git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-# git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
+# プラグインの設定
 plugins=(
   git
-  zsh-autosuggestions
+  zsh-autocomplete
   zsh-syntax-highlighting
   zsh-z
 )
 
+# Oh My Zshを読み込み
+source $ZSH/oh-my-zsh.sh
+
+# fzfのキー・バインディングと補完を有効化
+if [ -f "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh" ]; then
+  source "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh"
+fi
+
+if [ -f "$(brew --prefix)/opt/fzf/shell/completion.zsh" ]; then
+  source "$(brew --prefix)/opt/fzf/shell/completion.zsh"
+fi
+
+# fzf-git.shを読み込み
+source "$HOME/dotfiles/scripts/fzf-git.sh"
+
+# Starshipを初期化
+eval "$(starship init zsh)"
+
 # Code Editor
 export EDITOR="cursor"
-
-# https://ohmyz.sh/
-source $ZSH/oh-my-zsh.sh
 
 # -------------------------------- #
 # Docker
@@ -111,9 +123,9 @@ function gdc() {
 # Directories
 #
 # I put
-# `~/i` for my projects
-# `~/f` for forks
-# `~/r` for reproductions
+# `~/_i` for my projects
+# `~/_f` for forks
+# `~/_r` for reproductions
 # -------------------------------- #
 
 function i() {
