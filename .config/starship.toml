@@ -1,0 +1,27 @@
+# プロンプトのシンボルを変更
+[character]
+symbol = "❯"
+
+# Gitセクションの設定
+[git_branch]
+symbol = "🌱 "
+
+[git_status]
+conflicted = "⚔️ "
+ahead = "🏎️  ahead "
+behind = "🐢 behind "
+diverged = "🔀 diverged "
+untracked = "📝 "
+stashed = "📦 "
+modified = "✏️ "
+staged = "🗃️ "
+renamed = "✏️ "
+deleted = "🗑️ "
+
+# Node.jsセクションの設定
+[nodejs]
+symbol = "⬢ "
+
+# ディレクトリパスの短縮表示
+[directory]
+truncation_length = 3
