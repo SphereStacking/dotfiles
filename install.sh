@@ -30,25 +30,27 @@ mkdir -p "$HOME/.vscode" \
          "$HOME/dotfiles/scripts"
 
 # ファイルのマッピングを定義
-declare -A FILE_MAP=(
+FILE_MAP=(
   # ホームディレクトリ
-  ["$HOME/.gitconfig"]="$DOTFILES_DIR/.gitconfig"
-  ["$HOME/.zshrc"]="$DOTFILES_DIR/.zshrc"
+  "$DOTFILES_DIR/.gitconfig"                "$HOME/.gitconfig"
+  "$DOTFILES_DIR/.zshrc"                    "$HOME/.zshrc"
   # vscode
-  ["$HOME/.vscode/settings.json"]="$DOTFILES_DIR/.vscode/settings.json"
-  ["$HOME/.vscode/extensions.json"]="$DOTFILES_DIR/.vscode/extensions.json"
+  "$DOTFILES_DIR/.vscode/settings.json"     "$HOME/.vscode/settings.json"
+  "$DOTFILES_DIR/.vscode/extensions.json"   "$HOME/.vscode/extensions.json"
   # config
-  ["$HOME/.config/starship.toml"]="$DOTFILES_DIR/.config/starship.toml"
+  "$DOTFILES_DIR/.config/starship.toml"     "$HOME/.config/starship.toml"
   # scripts
-  ["$HOME/dotfiles/scripts/fzf-git.sh"]="$DOTFILES_DIR/scripts/fzf-git.sh"
+  "$DOTFILES_DIR/scripts/fzf-git.sh"        "$HOME/dotfiles/scripts/fzf-git.sh"
   # 必要に応じて他のファイルを追加
 )
 
 # シンボリックリンクを作成
-for target in "${!FILE_MAP[@]}"; do
-  source="${FILE_MAP[$target]}"
+for ((i=0; i<${#FILE_MAP[@]}; i+=2)); do
+  source="${FILE_MAP[i+1]}"
+  target="${FILE_MAP[i]}"
   create_symlink "$source" "$target"
 done
+
 echo "シンボリックリンクの作成が完了しました。"
 
 #----------------------------

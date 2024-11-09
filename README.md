@@ -70,13 +70,12 @@
    cp ~/.hoge ~/dotfiles/.hoge
    ```
 
-2. `install.sh`の`FILES`配列にファイル名を追加します。
+2. `install.sh`の`FILE_MAP`配列にファイル名を追加します。
 
    ```bash
-   FILES=(
-     ".gitconfig"
-     ".zshrc"
-     ".hoge" # 追加したファイル名
+   FILE_MAP=(
+      # ソースファイル        # ターゲットファイル
+      "$DOTFILES_DIR/.hoge"   "$HOME/.hoge"
    )
    ```
 
