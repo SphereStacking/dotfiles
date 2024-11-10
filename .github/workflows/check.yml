@@ -7,6 +7,8 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v1
+      - name: Grant execute permission for install script
+        run: chmod +x .bin/install.sh
       - name: Install required packages
         run: brew install git
       - name: Install dotfiles
@@ -17,6 +19,8 @@ jobs:
     container: ubuntu:latest
     steps:
       - uses: actions/checkout@v1
+      - name: Grant execute permission for install script
+        run: chmod +x .bin/install.sh
       - name: Install required packages
         run: apt-get update && apt-get install -y git sudo
       - name: Install dotfiles
@@ -27,6 +31,8 @@ jobs:
     container: centos:latest
     steps:
       - uses: actions/checkout@v1
+      - name: Grant execute permission for install script
+        run: chmod +x .bin/install.sh
       - name: Install required packages
         run: yum install -y git sudo
       - name: Install dotfiles
@@ -37,6 +43,8 @@ jobs:
     container: alpine:latest
     steps:
       - uses: actions/checkout@v1
+      - name: Grant execute permission for install script
+        run: chmod +x .bin/install.sh
       - name: Install required packages
         run: apk add git sudo bash
       - name: Install dotfiles
@@ -47,6 +55,8 @@ jobs:
     container: archlinux/base:latest
     steps:
       - uses: actions/checkout@v1
+      - name: Grant execute permission for install script
+        run: chmod +x .bin/install.sh
       - name: Update packages
         run: pacman -Syu --noconfirm
       - name: Install required packages
@@ -59,6 +69,8 @@ jobs:
     container: ubuntu:latest
     steps:
       - uses: actions/checkout@v1
+      - name: Grant execute permission for install script
+        run: chmod +x .bin/install.sh
       - name: Update packages
         run: apt-get update
       - name: Install packages for install repository
