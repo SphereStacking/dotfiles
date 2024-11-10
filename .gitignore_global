@@ -1,0 +1,5 @@
+# よく誤コミットしてしまう `*~` や `.vscode` や `.DS_Store` を記載する
+*~
+.vscode
+.DS_Store
+.history # vscode extension local-history cash
