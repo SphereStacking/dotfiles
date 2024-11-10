@@ -7,7 +7,7 @@
 | リポジトリをクローン             | `git clone <repository-url>`             |
 | 変更をステージング               | `git add <file>`                         |
 | 全ての変更をステージング         | `git add .`                              |
-| 変更をコミット                   | `git commit -m "コミットメッセージ"`     |
+| 変更をコミット                   | `git commit -m "<commit-message>"`     |
 | リモートリポジトリを追加         | `git remote add origin <repository-url>` |
 | リモートリポジトリにプッシュ     | `git push origin <branch-name>`          |
 | リモートリポジトリからプル       | `git pull origin <branch-name>`          |
