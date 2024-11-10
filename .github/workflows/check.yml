@@ -12,7 +12,7 @@ jobs:
       - name: Install required packages
         run: brew install git
       - name: Install dotfiles
-        run: .bin/install.sh install
+        run: .bin/install.sh -all
 
   ubuntu:
     runs-on: ubuntu-latest
@@ -24,7 +24,7 @@ jobs:
       - name: Install required packages
         run: apt-get update && apt-get install -y git sudo
       - name: Install dotfiles
-        run: .bin/install.sh install
+        run: .bin/install.sh -all
 
   centos:
     runs-on: ubuntu-latest
@@ -36,7 +36,7 @@ jobs:
       - name: Install required packages
         run: yum install -y git sudo
       - name: Install dotfiles
-        run: .bin/install.sh install
+        run: .bin/install.sh -all
 
   alpine:
     runs-on: ubuntu-latest
@@ -48,7 +48,7 @@ jobs:
       - name: Install required packages
         run: apk add git sudo bash
       - name: Install dotfiles
-        run: .bin/install.sh install
+        run: .bin/install.sh -all
 
   arch:
     runs-on: ubuntu-latest
@@ -62,7 +62,7 @@ jobs:
       - name: Install required packages
         run: pacman -S --noconfirm git sudo
       - name: Install dotfiles
-        run: .bin/install.sh install
+        run: .bin/install.sh -all
 
   lint:
     runs-on: ubuntu-latest

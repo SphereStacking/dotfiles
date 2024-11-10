@@ -51,13 +51,18 @@ while [ $# -gt 0 ];do
       helpmsg
       exit 1
       ;;
-    --install-homebrew)
+    --install-homebrew|-homebrew)
       install_homebrew
       ;;
-    --install-oh-my-zsh)
+    --install-oh-my-zsh|-ohmyzsh)
       install_oh_my_zsh
       ;;
-    --install-fzf-extension)
+    --install-fzf-extension|-fzf)
+      install_fzf_extension
+      ;;
+    --install-all|-all)
+      install_homebrew
+      install_oh_my_zsh
       install_fzf_extension
       ;;
     *)
