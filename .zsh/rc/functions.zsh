@@ -83,3 +83,8 @@ function codei() {
 function cd() {
   builtin cd "$1" && ls
 }
+
+# catコマンドをbatで実行
+function cat() {
+  bat "$@"
+}
