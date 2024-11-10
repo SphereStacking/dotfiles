@@ -24,7 +24,9 @@
 !/.bin/
 !/.bin/**
 !/.bin.local
+!/.github/
 !/.github/**
+!/.github/workflows/**
 !/.config/
 !/.config/**
 !/.gitignore_global
