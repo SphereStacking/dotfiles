@@ -5,9 +5,9 @@ set -ue
 DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
 echo "dotfilesディレクトリ: $DOTFILES_DIR"
 
-source "$DOTFILES_DIR/.bin/install_homebrew.sh"
-source "$DOTFILES_DIR/.bin/install_oh_my_zsh.sh"
-source "$DOTFILES_DIR/.bin/install_fzf_extension.sh"
+source "$DOTFILES_DIR/install_homebrew.sh"
+source "$DOTFILES_DIR/install_oh_my_zsh.sh"
+source "$DOTFILES_DIR/install_fzf_extension.sh"
 
 
 helpmsg() {
