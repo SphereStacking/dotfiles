@@ -2,4 +2,5 @@
 *~
 .vscode
 .DS_Store
-.history # vscode extension local-history cash
+.history
+.history/**/* # vscode extension local-history cash
