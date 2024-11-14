@@ -1,27 +1,56 @@
+
+# 継続プロンプトの設定
+continuation_prompt = '[❯❯ ](fg:blue)'
+
 # プロンプトのシンボルを変更
 [character]
-symbol = "❯"
-
-# Gitセクションの設定
-[git_branch]
-symbol = "🌱 "
-
-[git_status]
-conflicted = "⚔️ "
-ahead = "🏎️  ahead "
-behind = "🐢 behind "
-diverged = "🔀 diverged "
-untracked = "📝 "
-stashed = "📦 "
-modified = "✏️ "
-staged = "🗃️ "
-renamed = "✏️ "
-deleted = "🗑️ "
-
-# Node.jsセクションの設定
-[nodejs]
-symbol = "⬢ "
+error_symbol = "[❯❯❯](bold red)"
+success_symbol = "[❯❯❯](bold green)"
 
 # ディレクトリパスの短縮表示
 [directory]
-truncation_length = 3
+style = "fg:blue"
+format = "[$path]($style)"
+truncation_length = 4
+truncation_symbol = "..."
+truncate_to_repo = false
+
+# Gitの差分の表示
+[git_status]
+style = "fg:blue"
+format = '([\[$all_status$ahead_behind\]]($style))'
+
+# Gitブランチの表示
+[git_branch]
+format = " [$symbol $branch]($style)"
+style = "fg:#888888"
+symbol = ""
+
+# Gitの差分の表示
+[git_metrics]
+disabled = false
+added_style = 'bold blue'
+format = '\([+$added]($added_style)/[-$deleted]($deleted_style)\)'
+only_nonzero_diffs = true
+
+# Node.jsセクションの設定
+[nodejs]
+style = "#ffc0cb"
+format = " [$symbol $version]($style)"
+symbol = ''
+
+# Pythonセクションの設定
+[python]
+detect_extensions = ['py', 'ipynb']
+pyenv_version_name = true
+style = "yellow"
+format = ' [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+
+# Dockerコンテキストセクションの設定
+[docker_context]
+format = "via [🐋 $context](blue bold)"
+
+# コマンド実行時間の表示
+[cmd_duration]
+show_milliseconds = true
+format = ' [󱫌 $duration]($style)'
