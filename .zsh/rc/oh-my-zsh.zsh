@@ -7,6 +7,8 @@ plugins=(
   zsh-autocomplete
   zsh-syntax-highlighting
   zsh-z
+  asdf
+  zsh-abbr
 )
 
 # Oh My Zshを読み込み

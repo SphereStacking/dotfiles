@@ -2,10 +2,6 @@
 export EDITOR="cursor"
 export DOTFILES_PATH="$HOME/dotfiles"
 
-# oh-my-zshのプラグイン
-plugins=(
-    asdf
-)
 
 # 各設定ファイルを読み込む
 source "$DOTFILES_PATH/.zsh/rc/oh-my-zsh.zsh"
