@@ -3,7 +3,7 @@
 #----------------------------
 # Brewfileによるパッケージのインストール
 #----------------------------
-install_brewfile(){
+setup_brewfile(){
 
   BREWFILE_PATH="$DOTFILES_DIR/Brewfile"
 

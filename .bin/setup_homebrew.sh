@@ -2,7 +2,7 @@
 #----------------------------
 # Homebrewのインストールと設定
 #----------------------------
-install_homebrew() {
+setup_homebrew() {
   if ! command -v brew &>/dev/null; then
     echo "Homebrewが見つかりません。インストールを開始します..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"

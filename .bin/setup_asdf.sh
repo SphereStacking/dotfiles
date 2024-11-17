@@ -3,7 +3,7 @@
 #----------------------------
 # Oh My Zshのインストール
 #----------------------------
-install_asdf(){
+setup_asdf(){
   if [ ! -d "$HOME/.asdf" ]; then
     echo "asdfをインストールしています..."
     git clone https://github.com/asdf-vm/asdf.git ~/.asdf

@@ -60,6 +60,6 @@ __link_dotfiles_to_homedir() {
   fi
 }
 
-create_symlink_dotfiles() {
+setup_symlink_dotfiles() {
   __link_dotfiles_to_homedir
 }
