@@ -15,10 +15,13 @@ __private_backup_and_create_symlink() {
   local src=$1
   local dest=$2
 
-  for item in "$src"/*; do
+  for item in "$src"/{.,}*; do
+    [[ "${item##*/}" == "." || "${item##*/}" == ".." ]] && continue
+    
     local base_item=$(basename "$item")
     local dest_item="$dest/$base_item"
 
+    command echo "item: $item dest_item: $dest_item"
     if [[ -d "$item" ]]; then
       # ディレクトリの場合、再帰的に処理
       if [[ ! -d "$dest_item" ]]; then
@@ -34,6 +37,7 @@ __private_backup_and_create_symlink() {
         command mv "$dest_item" "$HOME/.dotbackup"
       fi
       command ln -snf "$item" "$dest_item"
+      command echo "[3] ln -snf $item $dest_item"
     fi
   done
 }
@@ -48,6 +52,7 @@ __link_dotfiles_to_homedir() {
   # scriptのが実行されたdirを取得
   local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
   local dotdir=$(dirname ${script_dir})
+  command echo "[1] dotdir: $dotdir HOME: $HOME"
   if [[ "$HOME" != "$dotdir" ]]; then
     __private_backup_and_create_symlink "$dotdir" "$HOME"
   else

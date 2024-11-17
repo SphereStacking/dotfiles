@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
 set -ue
 
-# リポジトリのディレクトリを取得
-DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
+# リポジトリのディレクトリを取得（.binの親ディレクトリを指すように修正）
+DOTFILES_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 command echo "dotfilesディレクトリ: $DOTFILES_DIR"
 
-source "$DOTFILES_DIR/install_homebrew.sh"
-source "$DOTFILES_DIR/install_oh_my_zsh.sh"
-source "$DOTFILES_DIR/install_fzf_extension.sh"
-source "$DOTFILES_DIR/install_asdf.sh"
-source "$DOTFILES_DIR/script_create_symlink_dotfiles.sh"
+source "$DOTFILES_DIR/.bin/install_homebrew.sh"
+source "$DOTFILES_DIR/.bin/install_brewfile.sh"
+source "$DOTFILES_DIR/.bin/install_oh_my_zsh.sh"
+source "$DOTFILES_DIR/.bin/install_fzf_extension.sh"
+source "$DOTFILES_DIR/.bin/install_asdf.sh"
+source "$DOTFILES_DIR/.bin/script_create_symlink_dotfiles.sh"
 
 helpmsg() {
   command echo "Usage: $0 [--help | -h]" 0>&2
@@ -34,6 +35,9 @@ while [ $# -gt 0 ];do
     --install-homebrew|-homebrew)
       install_homebrew
       ;;
+    --install-brewfile|-brewfile)
+      install_brewfile
+      ;;
     --install-oh-my-zsh|-ohmyzsh)
       install_oh_my_zsh
       ;;
@@ -45,9 +49,10 @@ while [ $# -gt 0 ];do
       ;;
     --install-all|-all)
       install_homebrew
+      install_brewfile
+      install_asdf
       install_oh_my_zsh
       install_fzf_extension
-      install_asdf
       ;;
     --create-symlink|-symlink)
       create_symlink_dotfiles

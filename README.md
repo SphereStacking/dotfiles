@@ -28,14 +28,17 @@
    クローンした`dotfiles`ディレクトリに移動し、`install.sh`を実行します。
 
    ```bash
-   cd ~/dotfiles
-   chmod +x install.sh  # 実行権限を付与（初回のみ必要）
+   chmod +x {project_path}/.bin/*  # 実行権限を付与（初回のみ必要）
    
    # 全ての設定やアプリをインストール
-   ./install.sh -all
+   ./install.sh -homebrew
+   ./install.sh -brewfile
+   ./install.sh -asdf
+   ./install.sh -oh_my_zsh
+   ./install.sh -fzf_extension
 
-   # 設定ファイルのみインストール
-   ./install.sh
+   # 設定ファイルのみインストール 更新
+   ./install.sh -symlink
    ```
 
    **スクリプトの主な処理内容**:
