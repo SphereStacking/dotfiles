@@ -12,57 +12,83 @@ jobs:
       - name: Install required packages
         run: brew install git
       - name: Install dotfiles
-        run: .bin/install.sh -all
+        run: .bin/install.sh -homebrew
+        run: .bin/install.sh -brewfile
+        run: .bin/install.sh -asdf
+        run: .bin/install.sh -oh_my_zsh
+        run: .bin/install.sh -fzf_extension
+        run: .bin/install.sh -symlink
 
-  ubuntu:
-    runs-on: ubuntu-latest
-    container: ubuntu:latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Grant execute permission for install script
-        run: chmod +x .bin/install.sh
-      - name: Install required packages
-        run: apt-get update && apt-get install -y git sudo
-      - name: Install dotfiles
-        run: .bin/install.sh -all
+  # ubuntu:
+  #   runs-on: ubuntu-latest
+  #   container: ubuntu:latest
+  #   steps:
+  #     - uses: actions/checkout@v1
+  #     - name: Grant execute permission for install script
+  #       run: chmod +x .bin/install.sh
+  #     - name: Install required packages
+  #       run: apt-get update && apt-get install -y git sudo
+  #     - name: Install dotfiles
+  #       run: .bin/install.sh -homebrew
+  #       run: .bin/install.sh -brewfile
+  #       run: .bin/install.sh -asdf
+  #       run: .bin/install.sh -oh_my_zsh
+  #       run: .bin/install.sh -fzf_extension
+  #       run: .bin/install.sh -symlink
 
-  centos:
-    runs-on: ubuntu-latest
-    container: centos:latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Grant execute permission for install script
-        run: chmod +x .bin/install.sh
-      - name: Install required packages
-        run: yum install -y git sudo
-      - name: Install dotfiles
-        run: .bin/install.sh -all
 
-  alpine:
-    runs-on: ubuntu-latest
-    container: alpine:latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Grant execute permission for install script
-        run: chmod +x .bin/install.sh
-      - name: Install required packages
-        run: apk add git sudo bash
-      - name: Install dotfiles
-        run: .bin/install.sh -all
+  # centos:
+  #   runs-on: ubuntu-latest
+  #   container: centos:latest
+  #   steps:
+  #     - uses: actions/checkout@v1
+  #     - name: Grant execute permission for install script
+  #       run: chmod +x .bin/install.sh
+  #     - name: Install required packages
+  #       run: yum install -y git sudo
+  #     - name: Install dotfiles
+  #       run: .bin/install.sh -homebrew
+  #       run: .bin/install.sh -brewfile
+  #       run: .bin/install.sh -asdf
+  #       run: .bin/install.sh -oh_my_zsh
+  #       run: .bin/install.sh -fzf_extension
+  #       run: .bin/install.sh -symlink
 
-  arch:
-    runs-on: ubuntu-latest
-    container: archlinux/base:latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Grant execute permission for install script
-        run: chmod +x .bin/install.sh
-      - name: Update packages
-        run: pacman -Syu --noconfirm
-      - name: Install required packages
-        run: pacman -S --noconfirm git sudo
-      - name: Install dotfiles
-        run: .bin/install.sh -all
+  # alpine:
+  #   runs-on: ubuntu-latest
+  #   container: alpine:latest
+  #   steps:
+  #     - uses: actions/checkout@v1
+  #     - name: Grant execute permission for install script
+  #       run: chmod +x .bin/install.sh
+  #     - name: Install required packages
+  #       run: apk add git sudo bash
+  #     - name: Install dotfiles
+  #       run: .bin/install.sh -homebrew
+  #       run: .bin/install.sh -brewfile
+  #       run: .bin/install.sh -asdf
+  #       run: .bin/install.sh -oh_my_zsh
+  #       run: .bin/install.sh -fzf_extension
+  #       run: .bin/install.sh -symlink
+
+  # arch:
+  #   runs-on: ubuntu-latest
+  #   container: archlinux/base:latest
+  #   steps:
+  #     - uses: actions/checkout@v1
+  #     - name: Grant execute permission for install script
+  #       run: chmod +x .bin/install.sh
+  #     - name: Update packages
+  #       run: pacman -Syu --noconfirm
+  #     - name: Install required packages
+  #       run: pacman -S --noconfirm git sudo
+  #     - name: Install dotfiles
+  #       run: .bin/install.sh -homebrew
+  #       run: .bin/install.sh -brewfile
+  #       run: .bin/install.sh -asdf
+  #       run: .bin/install.sh -oh_my_zsh
+  #       run: .bin/install.sh -fzf_extension
+  #       run: .bin/install.sh -symlink
 
   lint:
     runs-on: ubuntu-latest
