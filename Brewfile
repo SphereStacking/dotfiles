@@ -14,11 +14,6 @@ brew "bat"       # `cat`の強化版
 brew "htop"      # システムモニタリングツール
 brew "sheldon"   # zsh プラグインマネージャー
 
-# Zshプラグイン
-brew "zsh-autocomplete"
-brew "zsh-syntax-highlighting"
-brew "zsh-z"
-
 # Caskアプリケーション（brew install --caskでインストール）
 cask "cursor"
 cask "visual-studio-code"
