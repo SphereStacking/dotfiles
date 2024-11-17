@@ -4,8 +4,8 @@ export DOTFILES_PATH="$HOME/dotfiles"
 
 # 各設定ファイルを読み込む
 source "$HOME/.zsh/rc/oh-my-zsh.zsh"
-source "$HOME/.zsh/rc/fzf.zsh"
-source "$HOME/.zsh/rc/fzf-git.sh"
+# source "$HOME/.zsh/rc/fzf.zsh"
+# source "$HOME/.zsh/rc/fzf-git.sh"
 source "$HOME/.zsh/rc/alias.zsh"
 source "$HOME/.zsh/rc/functions.zsh"
 
