@@ -11,6 +11,7 @@ source "$DOTFILES_DIR/.bin/setup_oh_my_zsh.sh"
 source "$DOTFILES_DIR/.bin/setup_fzf_extension.sh"
 source "$DOTFILES_DIR/.bin/setup_asdf.sh"
 source "$DOTFILES_DIR/.bin/setup_create_symlink_dotfiles.sh"
+source "$DOTFILES_DIR/.bin/setup_wsl2.sh"
 
 helpmsg() {
   command echo "Usage: $0 [--help | -h]" 0>&2
@@ -20,8 +21,13 @@ helpmsg() {
   command echo "  --setup-asdf"
   command echo "  --setup-all"
   command echo "  --setup-symlink"
+  command echo "  --setup-wsl2"
 }
 
+if [ $# -eq 0 ]; then
+  helpmsg
+  exit 1
+fi
 
 while [ $# -gt 0 ];do
   case ${1} in
@@ -31,6 +37,9 @@ while [ $# -gt 0 ];do
     --help|-h)
       helpmsg
       exit 1
+      ;;
+    --setup-wsl2|-wsl2)
+      setup_wsl2
       ;;
     --setup-homebrew|-homebrew)
       setup_homebrew

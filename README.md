@@ -30,6 +30,7 @@
    ```bash
    chmod +x {project_path}/.bin/*  # 実行権限を付与（初回のみ必要）
    
+   # macOS
    # 全ての設定やアプリをインストール
    ./install.sh -homebrew
    ./install.sh -brewfile
@@ -37,6 +38,10 @@
    ./install.sh -oh_my_zsh
    ./install.sh -fzf_extension
 
+   # WSL2
+   ./install.sh -wsl2
+
+   # 共通
    # 設定ファイルのみインストール 更新
    ./install.sh -symlink
    ```
