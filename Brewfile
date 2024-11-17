@@ -12,6 +12,7 @@ brew "starship"  # プロンプト
 brew "fzf"       # ファジーファインダー
 brew "bat"       # `cat`の強化版
 brew "htop"      # システムモニタリングツール
+brew "sheldon"   # zsh プラグインマネージャー
 
 # Zshプラグイン
 brew "zsh-autocomplete"

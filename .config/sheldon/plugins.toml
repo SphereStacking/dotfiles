@@ -1,0 +1,19 @@
+shell = "zsh"
+
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
+
+[plugins.zsh-autocomplete]
+github = "marlonrichert/zsh-autocomplete"
+
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+
+[plugins.zsh-z]
+github = "agkozak/zsh-z"
+
+[plugins.asdf]
+github = "asdf-vm/asdf"
+
+[plugins.zsh-abbr]
+github = "olets/zsh-abbr"

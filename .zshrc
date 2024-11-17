@@ -17,5 +17,8 @@ function set_win_title(){
 }
 precmd_functions+=(set_win_title)
 
+# sheldonの初期化
+eval "$(sheldon source)"
+
 # Starshipを初期化
 eval "$(starship init zsh)"
