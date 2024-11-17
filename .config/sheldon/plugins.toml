@@ -17,3 +17,6 @@ github = "asdf-vm/asdf"
 
 [plugins.zsh-abbr]
 github = "olets/zsh-abbr"
+
+[plugins.zsh-history-substring-search]
+github = "zsh-users/zsh-history-substring-search"
