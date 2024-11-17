@@ -10,9 +10,13 @@ brew "git"       # Git
 brew "gh"        # GitHub CLI
 brew "starship"  # プロンプト
 brew "fzf"       # ファジーファインダー
-brew "bat"       # `cat`の強化版
 brew "htop"      # システムモニタリングツール
 brew "sheldon"   # zsh プラグインマネージャー
+brew "eza"       # `ls`の強化版
+brew "bat"       # `cat`の強化版
+brew "fd"        # `find`の強化版
+brew "rg"        # `grep`の強化版
+brew "rustup-init" # Rust
 
 # Caskアプリケーション（brew install --caskでインストール）
 cask "cursor"

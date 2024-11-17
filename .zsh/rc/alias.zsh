@@ -1,3 +1,9 @@
+# 既存コマンドの置き換え
+alias ls='eza -alh --icons=auto --no-user'
+alias cat='bat --theme="Dracula"'
+alias find='fd'
+alias grep='rg'
+
 # Docker
 alias dc='docker compose'
 alias dcb='docker compose build'

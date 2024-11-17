@@ -5,12 +5,15 @@ setup_wsl2(){
     # starship
     curl -sS https://starship.rs/install.sh | sh
 
-    # zsh git fzf bat htop
-    sudo apt install zsh git fzf bat htop
+    # zsh git fzf bat htop fd-find ripgrep
+    sudo apt install zsh git fzf bat htop fd-find ripgrep
+
+    # rust
+    curl https://sh.rustup.rs -sSf | sh
 
     # sheldonのインストール
-    curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh \
-        | bash -s -- --repo rossmacarthur/sheldon --to /usr/bin
+    cargo install sheldon
+    cargo install eza
 
     # zshをデフォルトシェルに設定
     chsh -s $(which zsh)

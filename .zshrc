@@ -2,6 +2,9 @@
 export EDITOR="cursor"
 export DOTFILES_PATH="$HOME/dotfiles"
 
+export HISTSIZE=1000
+export SAVEHIST=1000
+
 # 各設定ファイルを読み込む
 source "$HOME/.zsh/rc/oh-my-zsh.zsh"
 # source "$HOME/.zsh/rc/fzf.zsh"
