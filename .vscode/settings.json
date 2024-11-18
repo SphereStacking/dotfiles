@@ -9,6 +9,8 @@
   "workbench.list.smoothScrolling": true,            //smoothScrolling
   "editor.smoothScrolling": true,                    //smoothScrolling
   "terminal.integrated.smoothScrolling": true,       //smoothScrolling
+  "editor.codeLens": true,                           // code参照の表示
+  "typescript.referencesCodeLens.enabled": true,     // ts参照を表示
 
   // ファイルの設定
   "files.insertFinalNewline": true,                  // ファイルの末尾に新しい行を挿入
