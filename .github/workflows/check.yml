@@ -12,12 +12,13 @@ jobs:
       - name: Install required packages
         run: brew install git
       - name: Install dotfiles
-        run: .bin/install.sh -homebrew
-        run: .bin/install.sh -brewfile
-        run: .bin/install.sh -asdf
-        run: .bin/install.sh -oh_my_zsh
-        run: .bin/install.sh -fzf_extension
-        run: .bin/install.sh -symlink
+        run: |
+          .bin/install.sh -homebrew
+          .bin/install.sh -brewfile
+          .bin/install.sh -asdf
+          .bin/install.sh -oh_my_zsh
+          .bin/install.sh -fzf_extension
+          .bin/install.sh -symlink
 
   # ubuntu:
   #   runs-on: ubuntu-latest
