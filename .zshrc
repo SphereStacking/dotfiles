@@ -1,26 +1,23 @@
-# 環境変数の設定
-export EDITOR="cursor"
-export DOTFILES_PATH="$HOME/dotfiles"
+# dotfiles main configuration file
+# 環境を判定して適切な設定ファイルを読み込む
 
-export HISTSIZE=1000
-export SAVEHIST=1000
+# 共通設定の読み込み
+source "$HOME/shell/common/init.zsh"
 
-# 各設定ファイルを読み込む
-source "$HOME/.zsh/rc/oh-my-zsh.zsh"
-# source "$HOME/.zsh/rc/fzf.zsh"
-# source "$HOME/.zsh/rc/fzf-git.sh"
-source "$HOME/.zsh/rc/alias.zsh"
-source "$HOME/.zsh/rc/functions.zsh"
-
-
-# カレントディレクトリをタイトルに表示する
-function set_win_title(){
-  echo -ne "\033]0; $(basename "$PWD") \007"
-}
-precmd_functions+=(set_win_title)
-
-# sheldonの初期化
-eval "$(sheldon source)"
-
-# Starshipを初期化
-eval "$(starship init zsh)"
+# OS別の設定読み込み
+case "$OSTYPE" in
+    darwin*)
+        # macOS
+        source "$HOME/shell/macos/init.zsh"
+        ;;
+    linux*)
+        # Linux (WSL2含む)
+        if [[ -n "$WSL_DISTRO_NAME" ]]; then
+            # WSL2
+            source "$HOME/shell/wsl2/init.zsh"
+        else
+            # 通常のLinux
+            # 必要に応じて追加
+        fi
+        ;;
+esac

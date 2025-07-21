@@ -1,38 +1,38 @@
 {
+  // ========== Visuals ==========
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.fontFamily": "Input Mono, monospace",
+  "editor.fontSize": 18,
+  "debug.console.fontSize": 16,
+  "terminal.integrated.fontSize": 16,
+  "editor.guides.bracketPairs": "active",
+  "editor.lineNumbers": "interval",
+  "editor.renderWhitespace": "boundary",
+  "editor.minimap.enabled": false,                   // エディタのミニマップは無効
+  "window.autoDetectColorScheme": true,
+  "window.density.editorTabHeight": "compact",      //タブをコンパクトにする
+  "window.commandCenter": true,                      // コマンドセンターのウィンドウ
+  "workbench.editor.tabActionLocation": "left",
+  "workbench.list.smoothScrolling": true,
+  "workbench.sideBar.location": "right",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.tree.expandMode": "singleClick",
+  "workbench.tree.indent": 10,
+  "workbench.editor.pinnedTabsOnSeparateRow": true, //ピン留めされたタブを別行に表示する
+  "workbench.editor.wrapTabs": true,                // タブは折り返し
+  "workbench.activityBar.orientation": "vertical",   // アクティビティバーを垂直に
+  "breadcrumbs.enabled": false,                       // ファイルのパンくずリスト
+  "window.zoomLevel": -1,                            // ズームレベル
+
   // エディター設定
   "editor.renderLineHighlight": "all",               // 選択行の行番号をハイライト
   "editor.cursorBlinking": "smooth",                 // カーソルは滑らかに点滅
-  "editor.cursorSmoothCaretAnimation": "on",         // カーソルのアニメーションは滑らか
   "editor.bracketPairColorization.enabled": true,    // 括弧の対応を色付け
   "editor.renderControlCharacters": true,            // エディタで制御文字を表示
-  "editor.suggestSelection": "first",                // サジェスト一覧の初期表示項目
-  "workbench.list.smoothScrolling": true,            //smoothScrolling
   "editor.smoothScrolling": true,                    //smoothScrolling
   "terminal.integrated.smoothScrolling": true,       //smoothScrolling
   "editor.codeLens": true,                           // code参照の表示
   "typescript.referencesCodeLens.enabled": true,     // ts参照を表示
-
-  // ファイルの設定
-  "files.insertFinalNewline": true,                  // ファイルの末尾に新しい行を挿入
-
-  // ワークベンチのレイアウト設定
-  "breadcrumbs.enabled": true,                       // ファイルのパンくずリスト
-  "window.commandCenter": true,                      // コマンドセンターのウィンドウ
-  "editor.minimap.enabled": false,                   // エディタのミニマップは無効
-  "workbench.editor.tabActionLocation": "left",      // 閉じるbuttonを左に
-  "workbench.activityBar.orientation": "vertical",   // アクティビティバーを垂直に
-  "window.zoomLevel": -1,                            // ズームレベル
-
-  // フォント設定
-  "editor.fontFamily": "Cica, monospace",            // エディタのフォントサイズ
-  "editor.fontSize": 18,                             // エディター文字サイズ
-  "debug.console.fontSize": 16,                      // コンソール文字サイズ
-  "terminal.integrated.fontSize": 16,                // ターミナル文字サイズ
-
-  // タブ設定
-  "workbench.editor.pinnedTabsOnSeparateRow": true, //ピン留めされたタブを別行に表示する
-  "workbench.editor.wrapTabs": true,                // タブは折り返し
-  "window.density.editorTabHeight": "compact",      //タブをコンパクトにする
 
   // ワークベンチのテーマ
   "workbench.colorTheme": "Default Dark Modern",    // ワークベンチのカラーテーマ
@@ -40,20 +40,119 @@
   // extensionの設定
   "extensions.ignoreRecommendations": true,          // 拡張機能の推奨を無視
 
-  // gitblameの設定
-  "gitblame.statusBarMessageClickAction": "Open git show",
-  "gitblame.ignoreWhitespace": true,
-  "gitblame.inlineMessageEnabled": true,
-  "gitblame.inlineMessageFormat": "💻${author.name} 🚀${time.ago} ${commit.summary}",
-  "gitblame.inlineMessageNoCommit": "Not Committed Yet",
-  "gitblame.statusBarMessageFormat": "💻${author.name} 🚀${time.ago}",
-  "gitblame.statusBarMessageNoCommit": "Not Committed Yet",
-
   // tailwind-fold拡張機能の設定
   "tailwind-fold.unfoldedTextOpacity": 0.5,         // Tailwind CSSの折りたたまれていないテキストの透明度
   "tailwind-fold.autoFold": false,                  // Tailwind CSSの自動折りたたみ
   "tailwind-fold.unfoldIfLineSelected": true,       // 選択行がある場合にTailwind CSSを展開
   "tailwind-fold.foldStyle": "QUOTES",              // Tailwind CSSの折りたたみスタイル
+
+  // gitlens
+  "gitlens.codeLens.authors.enabled": false,
+  "gitlens.codeLens.enabled": false,
+  "gitlens.codeLens.recentChange.enabled": false,
+  "gitlens.menus": {
+    "editor": {
+      "blame": false,
+      "clipboard": true,
+      "compare": true,
+      "history": false,
+      "remote": false
+    },
+    "editorGroup": {
+      "blame": true,
+      "compare": false
+    },
+    "editorTab": {
+      "clipboard": true,
+      "compare": true,
+      "history": true,
+      "remote": true
+    },
+    "explorer": {
+      "clipboard": true,
+      "compare": true,
+      "history": true,
+      "remote": true
+    },
+    "scm": {
+      "authors": true
+    },
+    "scmGroup": {
+      "compare": true,
+      "openClose": true,
+      "stash": true
+    },
+    "scmGroupInline": {
+      "stash": true
+    },
+    "scmItem": {
+      "clipboard": true,
+      "compare": true,
+      "history": true,
+      "remote": false,
+      "stash": true
+    }
+  },
+  "debug.onTaskErrors": "debugAnyway",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
+  "editor.find.addExtraSpaceOnTop": false,
+  "editor.inlineSuggest.enabled": true,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.suggestSelection": "first",
+  "editor.tabSize": 2,
+  "editor.unicodeHighlight.invisibleCharacters": false,
+  "editor.stickyScroll.enabled": true,
+  "editor.hover.sticky": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "never",
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
+  },
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.simpleDialog.enable": true,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "git.untrackedChanges": "separate",
+  "scm.diffDecorationsGutterWidth": 2,
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.fontWeight": "300",
+  "terminal.integrated.persistentSessionReviveProcess": "never",
+  "terminal.integrated.tabs.enabled": true,
+  "workbench.editor.closeOnFileDelete": true,
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.editor.limit.enabled": true,
+  "workbench.editor.limit.perEditorGroup": true,
+  "workbench.editor.limit.value": 5,
+  "search.exclude": {
+    "**/*.snap": true,
+    "**/*.svg": true,
+    "**/.git": true,
+    "**/.github": false,
+    "**/.nuxt": true,
+    "**/.output": true,
+    "**/.pnpm": true,
+    "**/.vscode": true,
+    "**/.yarn": true,
+    "**/assets": true,
+    "**/bower_components": true,
+    "**/dist/**": true,
+    "**/logs": true,
+    "**/node_modules": true,
+    "**/out/**": true,
+    "**/package-lock.json": true,
+    "**/pnpm-lock.yaml": true,
+    "**/public": true,
+    "**/temp": true,
+    "**/yarn.lock": true,
+    "**/CHANGELOG*": true,
+    "**/LICENSE*": true,
+  },
 
   // fileNesting設定
   "explorer.fileNesting.enabled": true,

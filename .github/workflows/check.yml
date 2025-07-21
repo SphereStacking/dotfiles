@@ -1,110 +1,123 @@
 name: CI
 
-on: [push]
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  macos:
-    runs-on: macos-latest
+  test:
+    runs-on: ubuntu-latest
+    outputs:
+      cache-key: ${{ steps.cache.outputs.cache-hit }}
     steps:
-      - uses: actions/checkout@v1
-      - name: Grant execute permission for install script
-        run: chmod +x .bin/install.sh
-      - name: Install required packages
-        run: brew install git
-      - name: Install dotfiles
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Cache test dependencies
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.local/share/sheldon
+            ~/.cache/starship
+          key: test-deps-${{ runner.os }}-${{ hashFiles('**/plugins.toml', 'Brewfile') }}
+          restore-keys: |
+            test-deps-${{ runner.os }}-
+      
+      - name: Install GitHub CLI
         run: |
-          .bin/install.sh -homebrew
-          .bin/install.sh -brewfile
-          .bin/install.sh -asdf
-          .bin/install.sh -oh_my_zsh
-          .bin/install.sh -fzf_extension
-          .bin/install.sh -symlink
+          type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
+          curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+          echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+          sudo apt update && sudo apt install gh -y
+      
+      - name: Run tests
+        run: |
+          chmod +x tests/install_test.sh
+          tests/install_test.sh
 
-  # ubuntu:
-  #   runs-on: ubuntu-latest
-  #   container: ubuntu:latest
-  #   steps:
-  #     - uses: actions/checkout@v1
-  #     - name: Grant execute permission for install script
-  #       run: chmod +x .bin/install.sh
-  #     - name: Install required packages
-  #       run: apt-get update && apt-get install -y git sudo
-  #     - name: Install dotfiles
-  #       run: .bin/install.sh -homebrew
-  #       run: .bin/install.sh -brewfile
-  #       run: .bin/install.sh -asdf
-  #       run: .bin/install.sh -oh_my_zsh
-  #       run: .bin/install.sh -fzf_extension
-  #       run: .bin/install.sh -symlink
-
-
-  # centos:
-  #   runs-on: ubuntu-latest
-  #   container: centos:latest
-  #   steps:
-  #     - uses: actions/checkout@v1
-  #     - name: Grant execute permission for install script
-  #       run: chmod +x .bin/install.sh
-  #     - name: Install required packages
-  #       run: yum install -y git sudo
-  #     - name: Install dotfiles
-  #       run: .bin/install.sh -homebrew
-  #       run: .bin/install.sh -brewfile
-  #       run: .bin/install.sh -asdf
-  #       run: .bin/install.sh -oh_my_zsh
-  #       run: .bin/install.sh -fzf_extension
-  #       run: .bin/install.sh -symlink
-
-  # alpine:
-  #   runs-on: ubuntu-latest
-  #   container: alpine:latest
-  #   steps:
-  #     - uses: actions/checkout@v1
-  #     - name: Grant execute permission for install script
-  #       run: chmod +x .bin/install.sh
-  #     - name: Install required packages
-  #       run: apk add git sudo bash
-  #     - name: Install dotfiles
-  #       run: .bin/install.sh -homebrew
-  #       run: .bin/install.sh -brewfile
-  #       run: .bin/install.sh -asdf
-  #       run: .bin/install.sh -oh_my_zsh
-  #       run: .bin/install.sh -fzf_extension
-  #       run: .bin/install.sh -symlink
-
-  # arch:
-  #   runs-on: ubuntu-latest
-  #   container: archlinux/base:latest
-  #   steps:
-  #     - uses: actions/checkout@v1
-  #     - name: Grant execute permission for install script
-  #       run: chmod +x .bin/install.sh
-  #     - name: Update packages
-  #       run: pacman -Syu --noconfirm
-  #     - name: Install required packages
-  #       run: pacman -S --noconfirm git sudo
-  #     - name: Install dotfiles
-  #       run: .bin/install.sh -homebrew
-  #       run: .bin/install.sh -brewfile
-  #       run: .bin/install.sh -asdf
-  #       run: .bin/install.sh -oh_my_zsh
-  #       run: .bin/install.sh -fzf_extension
-  #       run: .bin/install.sh -symlink
+  installation-test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        mode: [minimal, update]
+    runs-on: ${{ matrix.os }}
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup GitHub CLI (Ubuntu)
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
+          curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+          echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+          sudo apt update && sudo apt install gh -y
+      
+      - name: Setup GitHub CLI (macOS)
+        if: matrix.os == 'macos-latest'
+        run: brew install gh
+      
+      - name: Test ${{ matrix.mode }} installation
+        run: |
+          chmod +x install.sh
+          ./install.sh --${{ matrix.mode }}
+      
+      - name: Verify GitHub CLI integration
+        run: |
+          gh --version
+          # Test basic gh commands that don't require authentication
+          gh api rate_limit --jq '.rate.remaining' || echo "Rate limit check failed (expected without auth)"
 
   lint:
     runs-on: ubuntu-latest
-    container: ubuntu:latest
     steps:
-      - uses: actions/checkout@v1
-      - name: Grant execute permission for install script
-        run: chmod +x .bin/install.sh
-      - name: Update packages
-        run: apt-get update
-      - name: Install packages for install repository
-        run: apt-get install -y git sudo software-properties-common
-      - name: Install required repository
-        run: apt-add-repository "deb http://archive.ubuntu.com/ubuntu trusty-backports main restricted universe"
-      - name: Install required packages
-        run: apt-get update; apt-get install -y shellcheck
-      - name: Execute shellcheck
-        run: test $(shellcheck  -f gcc ~/.zshrc ~/.zsh/rc/* | grep -v "SC1036\|SC1056\|SC1070\|SC1072\|SC1073\|SC1083\|SC2034\|SC2139\|SC2148\|SC1090\|SC1117\|SC2206\|SC1009\|SC2016\|SC2046\|SC2154" | tee -a /dev/stderr | wc -l) -le 1
+      - uses: actions/checkout@v4
+      
+      - name: Setup shellcheck
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y shellcheck
+      
+      - name: Run shellcheck
+        run: |
+          find . -name "*.sh" -type f -not -path "./node_modules/*" -exec shellcheck {} +
+      
+      - name: Check script permissions
+        run: |
+          scripts_missing_exec=()
+          while IFS= read -r -d '' script; do
+            if [[ ! -x "$script" ]]; then
+              scripts_missing_exec+=("$script")
+            fi
+          done < <(find . -name "*.sh" -type f -not -path "./node_modules/*" -print0)
+          
+          if [[ ${#scripts_missing_exec[@]} -gt 0 ]]; then
+            echo "Scripts missing executable permission:"
+            printf '%s\n' "${scripts_missing_exec[@]}"
+            exit 1
+          fi
+          echo "All scripts have correct permissions"
+
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Check for secrets in code
+        run: |
+          # Basic check for potential secrets
+          if grep -r -E "(password|secret|token|api_key)\s*=\s*['\"][^'\"]+['\"]" --include="*.sh" --include="*.zsh" .; then
+            echo "Potential secrets found in code!"
+            exit 1
+          fi
+          echo "No obvious secrets found"

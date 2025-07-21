@@ -16,10 +16,6 @@
         // git
         "GitHub.vscode-pull-request-github",
         "angelomollame.conflict-squeezer",
-        "waderyan.gitblame",                 // gitlens blame の代わり
-        "Graphite.gti-vscode",               // gitlens rebase の代わり
-        "exelord.git-commits",                // gitlens commits / stash の代わり
-        "GuodongSun.vscode-git-cruise",      // gitlens history の代わり
 
         // docker
         "ms-azuretools.vscode-docker",
@@ -77,5 +73,11 @@
         // "leodevbro.blockman"                  // エディターがうるさい
         // "bmewburn.vscode-intelephense-client" // DEVSENSE.phptools-vscodeを使うため
         // "cweijan.vscode-database-client2"     // DBCode.dbcodeが使いやすい
+        // gitlensの代わりだったが gitlensをうまく使った方が良かった
+        // "waderyan.gitblame",                  // gitlens blame の代わり
+        // "Graphite.gti-vscode",                // gitlens rebase の代わり
+        // "exelord.git-commits",                // gitlens commits / stash の代わり
+        // "GuodongSun.vscode-git-cruise",       // gitlens history の代わり
+
     ]
 }

@@ -1,0 +1,22 @@
+{
+  "includeCoAuthoredBy": false,
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(ls:*)",
+      "Bash(git rm:*)",
+      "Bash(rmdir:*)",
+      "Bash(rm:*)",
+      "Bash(/home/develop/reps/dotfiles/tests/install_test.sh:*)",
+      "Bash(./install.sh:*)",
+      "Bash(chmod:*)",
+      "Bash(echo $LANG)",
+      "Bash(echo $LC_ALL)",
+      "Bash(sudo apt install:*)",
+      "Bash(git checkout:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ],
+    "deny": []
+  }
+}
