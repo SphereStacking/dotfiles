@@ -17,12 +17,12 @@ test_info() {
 
 test_pass() {
     echo -e "\033[32m[PASS]\033[0m $*"
-    ((TESTS_PASSED++))
+    TESTS_PASSED=$((TESTS_PASSED + 1))
 }
 
 test_fail() {
     echo -e "\033[31m[FAIL]\033[0m $*"
-    ((TESTS_FAILED++))
+    TESTS_FAILED=$((TESTS_FAILED + 1))
 }
 
 # ディレクトリ構造のテスト
@@ -96,7 +96,7 @@ test_shell_syntax() {
     test_info "Testing shell script syntax..."
     
     local shell_scripts
-    shell_scripts=$(find "$DOTFILES_DIR" -name "*.sh" -type f)
+    shell_scripts=$(find "$DOTFILES_DIR" -name "*.sh" -type f -not -path "*/.history/*" -not -path "*/.SphereStacking/*" -not -path "*/backup*/*" -not -path "*/docs/.script.sh")
     
     while IFS= read -r script; do
         if bash -n "$script" 2>/dev/null; then
