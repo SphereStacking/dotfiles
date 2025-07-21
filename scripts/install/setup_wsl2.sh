@@ -25,6 +25,7 @@ setup_wsl2(){
     install_if_missing "rustc" "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && source \$HOME/.cargo/env"
     
     # cargoのパス設定
+    # shellcheck source=/dev/null
     [[ -f "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
 
     # ツールのインストール
@@ -35,7 +36,7 @@ setup_wsl2(){
     # zshをデフォルトシェルに設定
     if [[ "$SHELL" != *"zsh"* ]]; then
         info "zshをデフォルトシェルに設定中..."
-        chsh -s $(which zsh)
+        chsh -s "$(which zsh)"
         info "次回ログイン時にzshが使用されます"
     else
         info "zshは既にデフォルトシェルに設定されています"
