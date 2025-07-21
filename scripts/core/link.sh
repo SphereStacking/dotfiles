@@ -102,17 +102,17 @@ check() {
     local errors=0
     
     # ホームディレクトリのdotfilesリンクをチェック
-    find "$HOME" -maxdepth 2 -type l 2>/dev/null | while read -r link; do
+    while IFS= read -r -d '' link; do
         local target
         target=$(readlink "$link" 2>/dev/null || true)
         
         if [[ "$target" == "$DOTFILES_DIR"* ]]; then
             if [[ ! -e "$target" ]]; then
                 error "壊れたリンク: $link -> $target"
-                ((errors++))
+                errors=$((errors + 1))
             fi
         fi
-    done
+    done < <(find "$HOME" -maxdepth 2 -type l -print0 2>/dev/null)
     
     if [[ $errors -eq 0 ]]; then
         info "全てのシンボリックリンクは正常です！"

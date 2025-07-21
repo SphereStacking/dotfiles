@@ -168,7 +168,7 @@ main() {
     local args=""
     if needs_args "$selected_desc"; then
         arg_hint=$(extract_args "$selected_desc")
-        read -p "${arg_hint}を入力してください: " args
+        read -r -p "${arg_hint}を入力してください: " args
         if [[ -z "$args" ]]; then
             error "引数が必要です"
             exit 1

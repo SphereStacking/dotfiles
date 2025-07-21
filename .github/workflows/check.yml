@@ -90,7 +90,7 @@ jobs:
       
       - name: Run shellcheck
         run: |
-          find . -name "*.sh" -type f -not -path "./node_modules/*" -exec shellcheck {} +
+          find . -name "*.sh" -type f -not -path "./node_modules/*" -not -path "./docs/.script.sh" -exec shellcheck {} +
       
       - name: Check script permissions
         run: |

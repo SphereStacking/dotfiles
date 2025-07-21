@@ -60,7 +60,8 @@ create_symlink() {
     
     # 既存ファイルのバックアップ
     if [[ -e "$dest" && ! -L "$dest" ]]; then
-        local backup="$dest.backup.$(date +%Y%m%d_%H%M%S)"
+        local backup
+        backup="$dest.backup.$(date +%Y%m%d_%H%M%S)"
         mv "$dest" "$backup"
         info "既存ファイルをバックアップしました: $dest -> $backup"
     fi
