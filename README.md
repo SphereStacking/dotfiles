@@ -17,35 +17,33 @@
 
 1. **リポジトリをクローン**
 
-   ターミナルを開き、ホームディレクトリまたは任意の場所で以下のコマンドを実行します。
+   ターミナルを開き、以下のコマンドを実行します。
 
    ```bash
    git clone https://github.com/SphereStacking/dotfiles.git ~/dotfiles
+   cd ~/dotfiles
    ```
 
-2. **インストールスクリプトを実行**
+2. **インストール方法を選択**
 
-   クローンした`dotfiles`ディレクトリに移動し、`install.sh`を実行します。
-
+   ### 対話モード（推奨）
    ```bash
-   chmod +x {project_path}/.bin/*  # 実行権限を付与（初回のみ必要）
+   ./install.sh
+   ```
    
-   # macOS
-   ## 全ての設定やアプリをインストール
-   ./install.sh -homebrew
-   ./install.sh -brewfile
-   ./install.sh -asdf
-   ./install.sh -oh_my_zsh
-   ./install.sh -fzf_extension
-   ## rustの初期化
-   rustup-init
-
-   # WSL2
-   ./install.sh -wsl2
-
-   # 共通
-   # 設定ファイルのみインストール 更新
-   ./install.sh -symlink
+   ### ワンライナーでの完全インストール
+   ```bash
+   ./install.sh --all
+   ```
+   
+   ### 最小構成（設定ファイルのシンボリックリンクのみ）
+   ```bash
+   ./install.sh --minimal
+   ```
+   
+   ### 既存環境の更新
+   ```bash
+   ./install.sh --update
    ```
 
    **スクリプトの主な処理内容**:
@@ -74,7 +72,11 @@
    cp ~/.hoge ~/dotfiles/.hoge
    ```
 
-2. `install.sh`を再度実行してシンボリックリンクを張りなおす。
+2. インストーラーを再実行してシンボリックリンクを更新する。
+
+   ```bash
+   ./install.sh --update
+   ```
 
 ### Brewfileの編集
 
@@ -88,10 +90,10 @@
    cask "docker"
    ```
 
-2. スクリプトを再実行してインストールします。
+2. インストーラーを再実行してパッケージを更新します。
 
    ```bash
-   ./install.sh --install-homebrew
+   ./install.sh --all
    ```
 
 ## 注意事項
