@@ -1,102 +1,99 @@
 # dotfiles
 
-開発環境を再現するための`dotfiles`リポジトリ  
-設定ファイルや必要なアプリケーション、パッケージのインストールスクリプトが含まれる。
+Nix (nix-darwin + home-manager) を使用した macOS 開発環境管理
 
 ## 特徴
 
-- **シンボリックリンクによる設定管理**: 設定ファイルをホームディレクトリにシンボリックリンクで配置します。
-- **Homebrewによるパッケージ管理**: `Brewfile`を使用して、必要なパッケージやアプリケーションを一括インストールします。
+- **nix-darwin**: macOSシステム設定の宣言的管理
+- **home-manager**: ユーザー設定ファイルの管理
+- **Homebrew統合**: GUI アプリケーションを Nix で宣言的に管理
+- **モジュール構成**: 設定を機能別に分割して管理
 
 ## 前提条件
 
-- **macOS**がインストールされたマシン
-- **Git**がインストールされていること
+- **macOS** (Apple Silicon)
+- **Git**
 
-## インストール手順
+## インストール
 
-1. **リポジトリをクローン**
+```bash
+# リポジトリをクローン
+git clone https://github.com/SphereStacking/dotfiles.git ~/dotfiles
+cd ~/dotfiles
 
-   ターミナルを開き、ホームディレクトリまたは任意の場所で以下のコマンドを実行します。
+# セットアップスクリプトを実行
+./bootstrap.sh
+```
 
-   ```bash
-   git clone https://github.com/SphereStacking/dotfiles.git ~/dotfiles
-   ```
+## ファイル構成
 
-2. **インストールスクリプトを実行**
+```
+dotfiles/
+├── bootstrap.sh          # 初期セットアップスクリプト
+├── nix/
+│   ├── flake.nix         # Flake エントリーポイント
+│   ├── darwin.nix        # nix-darwin 設定
+│   ├── home.nix          # home-manager 設定
+│   └── modules/
+│       ├── homebrew.nix  # Homebrew cask 管理
+│       ├── system.nix    # macOS システム設定
+│       ├── zsh.nix       # Zsh シェル設定
+│       ├── git.nix       # Git 設定
+│       └── starship.nix  # Starship プロンプト
+└── .vscode/              # VSCode 設定（シンボリックリンク）
+```
 
-   クローンした`dotfiles`ディレクトリに移動し、`install.sh`を実行します。
+## 設定の更新
 
-   ```bash
-   chmod +x {project_path}/.bin/*  # 実行権限を付与（初回のみ必要）
-   
-   # macOS
-   ## 全ての設定やアプリをインストール
-   ./install.sh -homebrew
-   ./install.sh -brewfile
-   ./install.sh -asdf
-   ./install.sh -oh_my_zsh
-   ./install.sh -fzf_extension
-   ## rustの初期化
-   rustup-init
+```bash
+# 設定を適用
+sudo darwin-rebuild switch --flake ./nix#spherenoMacBook-Pro
 
-   # WSL2
-   ./install.sh -wsl2
+# Flake の構文チェック
+nix flake check ./nix --no-build
+```
 
-   # 共通
-   # 設定ファイルのみインストール 更新
-   ./install.sh -symlink
-   ```
+## 管理されるアプリケーション
 
-   **スクリプトの主な処理内容**:
+### Homebrew Cask (GUI アプリ)
+- Claude / Claude Code
+- Cursor / Visual Studio Code
+- Google Chrome
+- Raycast
+- Ghostty
+- 1Password
+- Discord / Slack
+- Font Cica
 
-   - 必要な設定ファイルをホームディレクトリにシンボリックリンクします。
-   - Homebrewがインストールされていない場合、自動的にインストールします。
-   - `Brewfile`を使用して、指定されたパッケージとアプリケーションをインストールします。
-
-3. **シェルを再起動**
-
-   新しいシェル設定を反映するために、ターミナルを再起動するか、以下のコマンドを実行します。
-
-   ```bash
-   source ~/.zshrc
-   ```
+### Nix パッケージ (CLI ツール)
+- git / gh
+- starship
+- rustup
+- nodejs
+- python3
 
 ## カスタマイズ
 
-### 設定ファイルの追加
+### アプリケーションの追加
 
-他の設定ファイルを管理したい場合は、以下の手順で追加できます。
+`nix/modules/homebrew.nix` を編集:
 
-1. リポジトリに設定ファイルを追加します。
+```nix
+casks = [
+  "new-app"  # 追加
+];
+```
 
-   ```bash
-   cp ~/.hoge ~/dotfiles/.hoge
-   ```
+### システム設定の変更
 
-2. `install.sh`を再度実行してシンボリックリンクを張りなおす。
+`nix/modules/system.nix` を編集して `darwin-rebuild switch` を実行
 
-### Brewfileの編集
+### Zsh 設定の変更
 
-必要なパッケージやアプリケーションを追加または削除できます。
-
-1. `Brewfile`を編集します。
-
-   ```ruby
-   # 例: 新しいパッケージを追加
-   brew "wget"
-   cask "docker"
-   ```
-
-2. スクリプトを再実行してインストールします。
-
-   ```bash
-   ./install.sh --install-homebrew
-   ```
+`nix/modules/zsh.nix` を編集
 
 ## 注意事項
 
-- **バックアップについて**: スクリプトは既存の設定ファイルを`*.backup`としてバックアップします。既存の設定を上書きしたくない場合は、バックアップファイルを確認してください。
-- **シェルの種類**: スクリプトは`zsh`をサポートしています。
-- **権限**: スクリプトはユーザー権限で実行してください。
-
+- 設定変更後は `darwin-rebuild switch` で適用が必要
+- Homebrew の `cleanup = "zap"` により、リストにないアプリは削除されます
+- VSCode 設定は `~/.vscode/` からシンボリックリンクされます
