@@ -8,6 +8,9 @@
       save = 10000;
     };
     initContent = ''
+      # Homebrew PATH
+      export PATH="/opt/homebrew/bin:$PATH"
+
       # ディレクトリ移動時にlsを実行
       function cd() {
         builtin cd "$@" || return
