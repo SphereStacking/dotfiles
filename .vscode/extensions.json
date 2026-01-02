@@ -1,81 +1,46 @@
 {
     "recommendations": [
-        //all
-        "MS-CEINTL.vscode-language-pack-ja",   
-        "streetsidesoftware.code-spell-checker",
+        // Localization
+        "MS-CEINTL.vscode-language-pack-ja",
+        "intellsmi.comment-translate",
+
+        // Git
+        "eamodio.gitlens",
+        "GitHub.vscode-pull-request-github",
+        "jackiotyu.git-worktree-manager",
+        "ascholer.chemeketa-gitdoc",
+
+        // Editor Enhancement
         "usernamehw.errorlens",
+        "streetsidesoftware.code-spell-checker",
+        "christian-kohler.path-intellisense",
+        "formulahendry.auto-close-tag",
+        "formulahendry.auto-rename-tag",
         "antfu.file-nesting",
         "antfu.where-am-i",
         "alefragnani.Bookmarks",
-        "semanticdiff.semanticdiff",
-        "ctf0.local-history-new",
+        "vsls-contrib.codetour",
 
-        // 絵文字
-        "bierner.emojisense",
-
-        // git
-        "GitHub.vscode-pull-request-github",
-        "angelomollame.conflict-squeezer",
-        "waderyan.gitblame",                 // gitlens blame の代わり
-        "Graphite.gti-vscode",               // gitlens rebase の代わり
-        "exelord.git-commits",                // gitlens commits / stash の代わり
-        "GuodongSun.vscode-git-cruise",      // gitlens history の代わり
-
-        // docker
-        "ms-azuretools.vscode-docker",
-
-        // markdown
+        // Markdown / Notes
+        "foam.foam-vscode",
         "bierner.github-markdown-preview",
-        "DavidAnson.vscode-markdownlint",
 
-        // csv
-        "mechatroner.rainbow-csv",
-
-        // html
-        "formulahendry.auto-close-tag",
-        "formulahendry.auto-rename-tag",
-
-        // js ts
+        // JavaScript / TypeScript
         "dbaeumer.vscode-eslint",
-        "christian-kohler.path-intellisense",
         "yoavbls.pretty-ts-errors",
 
-        // tailwind
+        // Tailwind
         "bradlc.vscode-tailwindcss",
         "stivo.tailwind-fold",
 
-        // iconify
-        "antfu.iconify",
-
-        // vue
+        // Vue / Nuxt
         "Vue.volar",
         "Nuxtr.nuxtr-vscode",
 
-        // dbclient
-        "DBCode.dbcode",
+        // Iconify
+        "antfu.iconify",
 
-        // redis
-        "Redis.redis-for-vscode",
-
-        // php
-        "bmewburn.vscode-intelephense-client",
-        "DEVSENSE.phptools-vscode",
-        "darkonen.phpstan-larastan",
-        "xdebug.php-debug",
-
-        // laravel 
-        "nhedger.inertia-vscode",
-
-        // theme
-        "akamud.vscode-theme-onedark",
-        "PKief.material-icon-theme",
-
-
-        // 使わないもの
-        // "eamodio.gitlens"                     // 機能が複雑すぎる。
-        // "octref.vetur"                        // 古い
-        // "leodevbro.blockman"                  // エディターがうるさい
-        // "bmewburn.vscode-intelephense-client" // DEVSENSE.phptools-vscodeを使うため
-        // "cweijan.vscode-database-client2"     // DBCode.dbcodeが使いやすい
+        // Theme
+        "catppuccin.catppuccin-vsc-icons"
     ]
 }

@@ -1,9 +1,0 @@
-# よく誤コミットしてしまう `*~` や `.vscode` や `.DS_Store` を記載する
-*~
-.vscode
-.DS_Store
-.history
-.history/**/* # vscode extension local-history cash
-
-# 個人ファイル
-.SphereStacking
