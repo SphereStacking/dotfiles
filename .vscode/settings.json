@@ -1,35 +1,154 @@
 {
-    // js tsで関数の引数のヒントを表示する。
+    // ============================================
+    // フォント設定
+    // ============================================
+    "editor.fontFamily": "Moralerspace Krypton",
+    "workbench.fontAliasing": "antialiased",
+    "terminal.integrated.fontSize": 10,
+    "terminal.integrated.fontWeight": "300",
+
+    // ============================================
+    // エディター基本設定
+    // ============================================
+    "editor.renderLineHighlight": "all",
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.smoothScrolling": true,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": true,
+    "editor.renderControlCharacters": true,
+    "editor.renderWhitespace": "boundary",
+    "editor.suggestSelection": "first",
+    "editor.codeLens": true,
+    "editor.lineNumbers": "interval",
+    "editor.minimap.enabled": false,
+    "editor.minimap.maxColumn": 30,
+    "editor.gotoLocation.multipleDefinitions": "goto",
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+
+    // ============================================
+    // ワークベンチ・UI設定
+    // ============================================
+    "workbench.list.smoothScrolling": true,
+    "workbench.iconTheme": "catppuccin-mocha",
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.sideBar.location": "right",
+    "workbench.secondarySideBar.showLabels": false,
+    "workbench.panel.showLabels": false,
+    "workbench.editor.empty.hint": "hidden",
+    "breadcrumbs.enabled": true,
+    "window.commandCenter": true,
+    "window.density.editorTabHeight": "compact",
+
+    // ============================================
+    // タブ・エディターグループ設定
+    // ============================================
+    "workbench.editor.tabActionLocation": "left",
+    "workbench.editor.pinnedTabsOnSeparateRow": true,
+    "workbench.editor.wrapTabs": true,
+    "workbench.editor.limit.enabled": true,
+    "workbench.editor.limit.perEditorGroup": true,
+    "workbench.editor.limit.value": 6,
+
+    // ============================================
+    // ターミナル設定
+    // ============================================
+    "terminal.integrated.smoothScrolling": true,
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.suggest.enabled": false,
+    "terminal.external.osxExec": "Ghostty.app",
+
+    // ============================================
+    // ファイル設定
+    // ============================================
+    "files.insertFinalNewline": true,
+    "files.associations": {
+        "*.md": "markdown"
+    },
+
+    // ============================================
+    // Git設定
+    // ============================================
+    "git.autofetch": true,
+    "git.openRepositoryInParentFolders": "never",
+    "scm.repositories.selectionMode": "single",
+
+    // ============================================
+    // GitHub設定
+    // ============================================
+    "githubPullRequests.pullBranch": "never",
+    "githubPullRequests.assignCreated": "${user}",
+    "githubPullRequests.allowFetch": false,
+
+    // ============================================
+    // GitLens設定
+    // ============================================
+    "gitlens.ai.enabled": false,
+    "gitlens.codeLens.enabled": false,
+    "gitlens.codeLens.authors.enabled": false,
+    "gitlens.codeLens.recentChange.enabled": false,
+    "gitlens.graph.statusBar.enabled": false,
+    "gitlens.menus": {
+        "editor": {
+            "blame": false,
+            "clipboard": true,
+            "compare": true,
+            "history": false,
+            "remote": false
+        },
+        "editorGroup": {
+            "blame": true,
+            "compare": false
+        },
+        "editorTab": {
+            "clipboard": true,
+            "compare": true,
+            "history": true,
+            "remote": true
+        },
+        "explorer": {
+            "clipboard": true,
+            "compare": true,
+            "history": true,
+            "remote": true
+        },
+        "scm": {
+            "authors": true
+        },
+        "scmGroup": {
+            "compare": true,
+            "openClose": true,
+            "stash": true
+        },
+        "scmGroupInline": {
+            "stash": true
+        },
+        "scmItem": {
+            "clipboard": true,
+            "compare": true,
+            "history": true,
+            "remote": false,
+            "stash": true
+        }
+    },
+
+    // ============================================
+    // 言語別設定
+    // ============================================
     "javascript.inlayHints.parameterNames.enabled": "all",
     "javascript.inlayHints.parameterTypes.enabled": true,
     "typescript.inlayHints.parameterNames.enabled": "all",
     "typescript.inlayHints.parameterTypes.enabled": true,
-    
-    // エディター設定
-    "editor.renderLineHighlight": "all", // 選択行の行番号をハイライト
-    "editor.cursorBlinking": "smooth", // カーソルは滑らかに点滅
-    "editor.cursorSmoothCaretAnimation": "on", // カーソルのアニメーションは滑らか
-    "editor.bracketPairColorization.enabled": true, // 括弧の対応を色付け
-    "editor.renderControlCharacters": true, // エディタで制御文字を表示
-    "editor.suggestSelection": "first", // サジェスト一覧の初期表示項目
-    "workbench.list.smoothScrolling": true, //smoothScrolling
-    "editor.smoothScrolling": true, //smoothScrolling
-    "terminal.integrated.smoothScrolling": true, //smoothScrolling
-    "editor.codeLens": true, // code参照の表示
-    "typescript.referencesCodeLens.enabled": true, // ts参照を表示
-    // ファイルの設定
-    "files.insertFinalNewline": true, // ファイルの末尾に新しい行を挿入
-    // ワークベンチのレイアウト設定
-    "breadcrumbs.enabled": true, // ファイルのパンくずリスト
-    "window.commandCenter": true, // エディタのミニマップは無効
-    "workbench.editor.tabActionLocation": "left", // 閉じるbuttonを左に
-    // フォント設定
-    "editor.fontFamily": "monospace", // エディタのフォントサイズ
-    // タブ設定
-    "workbench.editor.pinnedTabsOnSeparateRow": true, //ピン留めされたタブを別行に表示する
-    "workbench.editor.wrapTabs": true, // タブは折り返し
-    "window.density.editorTabHeight": "compact", // ワークベンチのカラーテーマ
-    "claudeCode.preferredLocation": "panel",
+    "typescript.referencesCodeLens.enabled": true,
+    "[typescript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "markdownlint.run": "onSave",
+
+    // ============================================
+    // エクスプローラー・ファイルネスト設定
+    // ============================================
     "explorer.fileNesting.enabled": true,
     "explorer.fileNesting.expand": false,
     "explorer.fileNesting.patterns": {
@@ -134,10 +253,56 @@
         "*.wat": "$(capture).wasm",
         "*.xaml": "$(capture).xaml.cs"
     },
-    "editor.gotoLocation.multipleDefinitions": "goto",
-    "editor.minimap.maxColumn": 30,
-    "git.autofetch": true,
-    "codetour.showMarkers": false,
+
+    // ============================================
+    // 拡張機能: Highlight (TODO/FIXME等)
+    // ============================================
+    "highlight.regexes": {
+        "(\\w*Repository\\w*)": {
+            "decorations": [{ "backgroundColor": "#9942f5a7" }]
+        },
+        "(\\w*Impl\\w*)": {
+            "decorations": [{ "backgroundColor": "#9942f5a7" }]
+        },
+        "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *TODO(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^@\\n]+)?))": {
+            "filterFileRegex": ".*(?<!CHANGELOG.md)$",
+            "decorations": [
+                { "overviewRulerColor": "#ffcc00", "backgroundColor": "#ffcc00", "color": "#1f1f1f", "fontWeight": "bold" },
+                { "backgroundColor": "#ffcc00", "color": "#1f1f1f" }
+            ]
+        },
+        "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *(?:FIXME|FIX|BUG|UGLY|DEBUG|HACK)(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^@\\n]+)?))": {
+            "filterFileRegex": ".*(?<!CHANGELOG.md)$",
+            "decorations": [
+                { "overviewRulerColor": "#cc0000", "backgroundColor": "#cc0000", "color": "#1f1f1f", "fontWeight": "bold" },
+                { "backgroundColor": "#cc0000", "color": "#1f1f1f" }
+            ]
+        },
+        "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *(?:REVIEW|OPTIMIZE|TSC)(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^@\\n]+)?))": {
+            "filterFileRegex": ".*(?<!CHANGELOG.md)$",
+            "decorations": [
+                { "overviewRulerColor": "#00ccff", "backgroundColor": "#00ccff", "color": "#1f1f1f", "fontWeight": "bold" },
+                { "backgroundColor": "#00ccff", "color": "#1f1f1f" }
+            ]
+        },
+        "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *(?:IDEA)(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^@\\n]+)?))": {
+            "filterFileRegex": ".*(?<!CHANGELOG.md)$",
+            "decorations": [
+                { "overviewRulerColor": "#cc00cc", "backgroundColor": "#cc00cc", "color": "#1f1f1f", "fontWeight": "bold" },
+                { "backgroundColor": "#cc00cc", "color": "#1f1f1f" }
+            ]
+        }
+    },
+
+    // ============================================
+    // 拡張機能: Foam (Zettelkasten)
+    // ============================================
+    "foam.files.exclude": [".git/**/*"],
+    "foam.completion.label": "title",
+
+    // ============================================
+    // 拡張機能: Git Worktree Manager
+    // ============================================
     "git-worktree-manager.worktreeSubdirectoryTemplate": "$REF_NAME",
     "git-worktree-manager.worktreeCopyPatterns": [
         ".env",
@@ -146,149 +311,18 @@
         ".claude",
         "ssl"
     ],
-    "workbench.editor.empty.hint": "hidden",
-    "[typescript]": {
-        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-    },
-    "gitlens.codeLens.authors.enabled": false,
-    "gitlens.codeLens.enabled": false,
-    "gitlens.codeLens.recentChange.enabled": false,
-    "gitlens.menus": {
-        "editor": {
-        "blame": false,
-        "clipboard": true,
-        "compare": true,
-        "history": false,
-        "remote": false
-        },
-        "editorGroup": {
-        "blame": true,
-        "compare": false
-        },
-        "editorTab": {
-        "clipboard": true,
-        "compare": true,
-        "history": true,
-        "remote": true
-        },
-        "explorer": {
-        "clipboard": true,
-        "compare": true,
-        "history": true,
-        "remote": true
-        },
-        "scm": {
-        "authors": true
-        },
-        "scmGroup": {
-        "compare": true,
-        "openClose": true,
-        "stash": true
-        },
-        "scmGroupInline": {
-        "stash": true
-        },
-        "scmItem": {
-        "clipboard": true,
-        "compare": true,
-        "history": true,
-        "remote": false,
-        "stash": true
-        }
-    },
-    "highlight.regexes": {
-        "(\\w*Repository\\w*)": {
-            "decorations": [
-                {
-                    "backgroundColor": "#9942f5a7",
-                }
-            ]
-        },
-        "(\\w*Impl\\w*)": {
-            "decorations": [
-                {
-                    "backgroundColor": "#9942f5a7",
-                }
-            ]
-        },
-        "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *TODO(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^@\\n]+)?))": {
-            "filterFileRegex": ".*(?<!CHANGELOG.md)$",
-            "decorations": [
-                {
-                    "overviewRulerColor": "#ffcc00",
-                    "backgroundColor": "#ffcc00",
-                    "color": "#1f1f1f",
-                    "fontWeight": "bold"
-                },
-                {
-                    "backgroundColor": "#ffcc00",
-                    "color": "#1f1f1f"
-                }
-            ]
-        },
-        "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *(?:FIXME|FIX|BUG|UGLY|DEBUG|HACK)(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^@\\n]+)?))": {
-            "filterFileRegex": ".*(?<!CHANGELOG.md)$",
-            "decorations": [
-                {
-                    "overviewRulerColor": "#cc0000",
-                    "backgroundColor": "#cc0000",
-                    "color": "#1f1f1f",
-                    "fontWeight": "bold"
-                },
-                {
-                    "backgroundColor": "#cc0000",
-                    "color": "#1f1f1f"
-                }
-            ]
-        },
-        "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *(?:REVIEW|OPTIMIZE|TSC)(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^@\\n]+)?))": {
-            "filterFileRegex": ".*(?<!CHANGELOG.md)$",
-            "decorations": [
-                {
-                    "overviewRulerColor": "#00ccff",
-                    "backgroundColor": "#00ccff",
-                    "color": "#1f1f1f",
-                    "fontWeight": "bold"
-                },
-                {
-                    "backgroundColor": "#00ccff",
-                    "color": "#1f1f1f"
-                }
-            ]
-        },
-        "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *(?:IDEA)(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^@\\n]+)?))": {
-            "filterFileRegex": ".*(?<!CHANGELOG.md)$",
-            "decorations": [
-                {
-                    "overviewRulerColor": "#cc00cc",
-                    "backgroundColor": "#cc00cc",
-                    "color": "#1f1f1f",
-                    "fontWeight": "bold"
-                },
-                {
-                    "backgroundColor": "#cc00cc",
-                    "color": "#1f1f1f"
-                }
-            ]
-        }
-    },
-    "terminal.integrated.suggest.enabled": false,
-    "markdownlint.run": "onSave",
-    "files.associations": {
-        "*.md": "markdown"
-    },
-    "workbench.editor.limit.enabled": true,
-    "workbench.editor.limit.perEditorGroup": true,
-    "workbench.editor.limit.value": 6,
-    "terminal.integrated.fontSize": 10,
-    "terminal.integrated.fontWeight": "300",
-    "terminal.integrated.cursorStyle": "line",
-    "editor.guides.bracketPairs": true,
-    "editor.lineNumbers": "interval",
-    "editor.renderWhitespace": "boundary",
-    "workbench.fontAliasing": "antialiased",
-    "workbench.iconTheme": "catppuccin-mocha",
-    "workbench.startupEditor": "newUntitledFile",
+
+    // ============================================
+    // 拡張機能: その他
+    // ============================================
+    "claudeCode.preferredLocation": "panel",
+    "codetour.showMarkers": false,
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "catppuccin.accentColor": "teal",
+
+    // ============================================
+    // スペルチェック
+    // ============================================
     "cSpell.userWords": [
         "backlinking",
         "claudecode",
@@ -300,22 +334,9 @@
         "worktree",
         "Zettelkasten"
     ],
-    "gitlens.ai.enabled": false,
-    "gitlens.graph.statusBar.enabled": false,
-    "workbench.secondarySideBar.showLabels": false,
-    "workbench.panel.showLabels": false,
-    "githubPullRequests.pullBranch": "never",
-    "scm.repositories.selectionMode": "single",
-    "editor.minimap.enabled": false,
-    "terminal.external.osxExec": "Ghostty.app",
-    "githubPullRequests.assignCreated": "${user}",
-    "githubPullRequests.allowFetch": false,
-    "git.openRepositoryInParentFolders": "never",
-    "foam.files.exclude": [
-        ".git/**/*"
-    ],
-    "catppuccin.accentColor": "teal",
-    "workbench.sideBar.location": "right",
-    "foam.completion.label": "title",
-    "github.copilot.nextEditSuggestions.enabled": true,
+
+    // ============================================
+    // 未整理（新規追加された設定）
+    // ============================================
+
 }
