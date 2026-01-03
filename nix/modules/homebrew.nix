@@ -19,6 +19,7 @@
       "discord"
       "slack"
       "font-cica"
+      "font-moralerspace"
     ];
   };
 }
