@@ -26,4 +26,8 @@ in
     config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/.vscode/settings.json";
   home.file."Library/Application Support/Code/User/keybindings.json".source =
     config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/.vscode/keybindings.json";
+
+  # Claude Code カスタムコマンド・スキル
+  home.file.".claude/commands".source =
+    config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/.claude/commands";
 }
