@@ -30,6 +30,7 @@
     // ============================================
     // ワークベンチ・UI設定
     // ============================================
+    "workbench.colorTheme": "Catppuccin Mocha",
     "workbench.list.smoothScrolling": true,
     "workbench.iconTheme": "catppuccin-mocha",
     "workbench.startupEditor": "newUntitledFile",
@@ -40,6 +41,8 @@
     "breadcrumbs.enabled": true,
     "window.commandCenter": true,
     "window.density.editorTabHeight": "compact",
+    // カラーテーマ Catppuccin のアクセントカラーを teal に設定
+    "catppuccin.accentColor": "teal",
 
     // ============================================
     // タブ・エディターグループ設定
@@ -318,7 +321,7 @@
     "claudeCode.preferredLocation": "panel",
     "codetour.showMarkers": false,
     "github.copilot.nextEditSuggestions.enabled": true,
-    "catppuccin.accentColor": "teal",
+
 
     // ============================================
     // スペルチェック
@@ -327,6 +330,7 @@
         "backlinking",
         "claudecode",
         "docus",
+        "kaomoji",
         "Lineoa",
         "localstrage",
         "nuxt",
@@ -337,6 +341,5 @@
     // ============================================
     // 未整理（新規追加された設定）
     // ============================================
-    "workbench.colorTheme": "Ayu Dark Bordered",
 
 }
