@@ -1,0 +1,111 @@
+# AeroSpace Configuration
+# https://nikitabobko.github.io/AeroSpace/guide
+
+config-version = 2
+
+# ログイン時に自動起動
+start-at-login = true
+
+# 設定ファイル保存時に自動リロード
+auto-reload-config = true
+
+# 正規化設定
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+# アコーディオンレイアウトのパディング
+accordion-padding = 30
+
+# デフォルトレイアウト: tiles | accordion
+default-root-container-layout = 'tiles'
+
+# デフォルトの向き: horizontal | vertical | auto
+default-root-container-orientation = 'auto'
+
+# フォーカスしたモニターが変わったときにマウスを移動
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+# ワークスペース1-9を常に保持
+persistent-workspaces = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+
+[key-mapping]
+preset = 'qwerty'
+
+# ギャップ設定（ウィンドウ間の隙間）
+[gaps]
+inner.horizontal = 8
+inner.vertical = 8
+outer.left = 8
+outer.bottom = 8
+outer.top = 8
+outer.right = 8
+
+# メインモードのキーバインディング
+[mode.main.binding]
+
+# レイアウト切り替え
+alt-slash = 'layout tiles horizontal vertical'
+alt-comma = 'layout accordion horizontal vertical'
+
+# フォーカス移動 (Vim風)
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+
+# ウィンドウ移動
+alt-shift-h = 'move left'
+alt-shift-j = 'move down'
+alt-shift-k = 'move up'
+alt-shift-l = 'move right'
+
+# リサイズ
+alt-minus = 'resize smart -50'
+alt-equal = 'resize smart +50'
+
+# ワークスペース切り替え
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
+alt-7 = 'workspace 7'
+alt-8 = 'workspace 8'
+alt-9 = 'workspace 9'
+
+# ウィンドウをワークスペースに移動
+alt-shift-1 = 'move-node-to-workspace 1'
+alt-shift-2 = 'move-node-to-workspace 2'
+alt-shift-3 = 'move-node-to-workspace 3'
+alt-shift-4 = 'move-node-to-workspace 4'
+alt-shift-5 = 'move-node-to-workspace 5'
+alt-shift-6 = 'move-node-to-workspace 6'
+alt-shift-7 = 'move-node-to-workspace 7'
+alt-shift-8 = 'move-node-to-workspace 8'
+alt-shift-9 = 'move-node-to-workspace 9'
+
+# ワークスペース切り替え（前後）
+alt-tab = 'workspace-back-and-forth'
+alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+
+# サービスモードに入る
+alt-shift-semicolon = 'mode service'
+
+# フルスクリーントグル
+alt-f = 'fullscreen'
+
+# ターミナル起動 (Ghostty)
+alt-enter = 'exec-and-forget open -a Ghostty'
+
+# サービスモード
+[mode.service.binding]
+esc = ['reload-config', 'mode main']
+r = ['flatten-workspace-tree', 'mode main']  # レイアウトリセット
+f = ['layout floating tiling', 'mode main']  # フローティング切り替え
+backspace = ['close-all-windows-but-current', 'mode main']
+
+alt-shift-h = ['join-with left', 'mode main']
+alt-shift-j = ['join-with down', 'mode main']
+alt-shift-k = ['join-with up', 'mode main']
+alt-shift-l = ['join-with right', 'mode main']

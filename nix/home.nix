@@ -30,4 +30,8 @@ in
   # Claude Code カスタムコマンド・スキル
   home.file.".claude/commands".source =
     config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/.claude/commands";
+
+  # AeroSpace設定（直接編集可能）
+  home.file.".aerospace.toml".source =
+    config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/.config/aerospace/aerospace.toml";
 }

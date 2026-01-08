@@ -7,7 +7,11 @@
       cleanup = "zap";
       autoUpdate = true;
     };
+    taps = [
+      "nikitabobko/tap"
+    ];
     casks = [
+      "nikitabobko/tap/aerospace"
       "claude"
       "claude-code"
       "cursor"
