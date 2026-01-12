@@ -16,6 +16,8 @@ in
 
   home.packages = with pkgs; [
     sheldon
+    youtube-music
+    autoraise
   ];
 
   # Sheldon設定をシンボリックリンク
@@ -34,4 +36,8 @@ in
   # AeroSpace設定（直接編集可能）
   home.file.".aerospace.toml".source =
     config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/.config/aerospace/aerospace.toml";
+
+  # Sketchybar設定（直接編集可能）
+  home.file.".config/sketchybar".source =
+    config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/.config/sketchybar";
 }
