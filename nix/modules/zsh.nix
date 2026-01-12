@@ -3,6 +3,20 @@
 {
   programs.zsh = {
     enable = true;
+    shellAliases = {
+      cat = "bat";
+      ls = "eza --icons";
+      ll = "eza -alh --icons";
+      la = "eza -a --icons";
+      tree = "eza --tree --icons";
+      grep = "rg";
+      find = "fd";
+      du = "dust";
+      df = "duf";
+      top = "btm";
+      diff = "delta";
+      ss = "~/Develop/reps/SphereStacking/dotfiles/launcher.sh";
+    };
     history = {
       size = 10000;
       save = 10000;
@@ -13,6 +27,9 @@
 
       # Homebrew PATH
       export PATH="/opt/homebrew/bin:$PATH"
+
+      # zoxide (smarter cd)
+      eval "$(zoxide init zsh)"
 
       # ディレクトリ移動時にlsを実行
       function cd() {
@@ -34,9 +51,6 @@
         claude "''${opts[@]}" "$@"
       }
 
-      # zsh-abbr abbreviations
-      abbr -S ll="ls -alh" 2>/dev/null
-      abbr -S la="ls -a" 2>/dev/null
     '';
   };
 }
