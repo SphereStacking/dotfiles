@@ -2,8 +2,9 @@
     // ============================================
     // フォント設定
     // ============================================
-    "editor.fontFamily": "Moralerspace Krypton",
+    "editor.fontFamily": "'Moralerspace Krypton', 'SF Pro', 'Hack Nerd Font', monospace",
     "workbench.fontAliasing": "antialiased",
+    "terminal.integrated.fontFamily": "'Moralerspace Krypton', 'SF Pro', 'Hack Nerd Font', monospace",
     "terminal.integrated.fontSize": 10,
     "terminal.integrated.fontWeight": "300",
 
@@ -340,6 +341,7 @@
         "noahs",
         "nuxt",
         "osascript",
+        "paypay",
         "vueuse",
         "wikilinks",
         "worktree",
