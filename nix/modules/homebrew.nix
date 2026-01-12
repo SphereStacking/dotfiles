@@ -9,6 +9,22 @@
     };
     taps = [
       "nikitabobko/tap"
+      "FelixKratz/formulae"
+    ];
+    brews = [
+      "felixkratz/formulae/borders"
+      "felixkratz/formulae/sketchybar"
+      "fzf"
+      "bat"
+      "eza"
+      "ripgrep"
+      "fd"
+      "zoxide"
+      "dust"
+      "duf"
+      "bottom"
+      "git-delta"
+      "tldr"
     ];
     casks = [
       "nikitabobko/tap/aerospace"
@@ -24,6 +40,10 @@
       "slack"
       "font-cica"
       "font-moralerspace"
+      "font-symbols-only-nerd-font"
+      "font-hack-nerd-font"
+      "font-sf-pro"
+      "sf-symbols"
     ];
   };
 }
