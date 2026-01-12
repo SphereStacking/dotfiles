@@ -1,0 +1,57 @@
+#!/bin/bash
+
+# General Icons
+LOADING=􀖇
+APPLE=􀣺
+PREFERENCES=􀺽
+ACTIVITY=􀒓
+LOCK=􀒳
+BELL=􀋚
+BELL_DOT=􀝗
+
+# Git Icons
+GIT_ISSUE=􀍷
+GIT_DISCUSSION=􀒤
+GIT_PULL_REQUEST=􀙡
+GIT_COMMIT=􀡚
+GIT_INDICATOR=􀂓
+
+# Music Icons (shared by Spotify/YouTube Music)
+MUSIC_BACK=􀊎
+MUSIC_NEXT=􀊐
+MUSIC_PLAY=􀊄
+MUSIC_PAUSE=􀊆
+MUSIC_SHUFFLE=􀊝
+MUSIC_REPEAT=􀊞
+
+# Aerospace Icons (replacing Yabai)
+AEROSPACE_STACK=􀏭
+AEROSPACE_FULLSCREEN=􀏜
+AEROSPACE_FLOAT=􀢌
+AEROSPACE_TILED=􀧍
+AEROSPACE_GRID=􀏝
+
+# Battery Icons
+BATTERY_100=􀛨
+BATTERY_75=􀺸
+BATTERY_50=􀺶
+BATTERY_25=􀛩
+BATTERY_0=􀛪
+BATTERY_CHARGING=􀢋
+
+# Volume Icons
+VOLUME_100=􀊩
+VOLUME_66=􀊧
+VOLUME_33=􀊥
+VOLUME_10=􀊡
+VOLUME_0=􀊣
+
+# Memory Icons
+MEMORY=􀫦
+
+# YouTube Music
+YOUTUBE_MUSIC=􀑪
+
+# Settings/System
+SETTINGS=􀍟
+LOCK_SCREEN=􀎠
